@@ -1,23 +1,23 @@
-import React, {FC, PropsWithChildren, ReactNode, Children, isValidElement, cloneElement} from 'react';
-import {Tabs} from 'antd';
+import React, {Children, FC, isValidElement, ReactNode} from 'react';
+import {Tabs as AntTabs} from 'antd';
 
-const {TabPane} = Tabs;
+const {TabPane} = AntTabs;
 
-const TabRoot: FC<{ children: ReactNode }> = ({ children }) => {
+export const Tabs: FC<{ children: ReactNode }> = ({children}) => {
     const labels = Children.toArray(children).filter(child => isValidElement(child) && child.type === TabLabel);
     const contents = Children.toArray(children).filter(child => isValidElement(child) && child.type === TabContent);
 
     return (
-        <Tabs>
+        <AntTabs type={"card"}>
             {labels.map((label, index) => (
                 <TabPane tab={label} key={index}>
                     {contents[index]}
                 </TabPane>
             ))}
-        </Tabs>
+        </AntTabs>
     );
 };
 
-const TabLabel: FC<{ children: ReactNode }> = ({ children }) => <>{children}</>;
-const TabContent: FC<{ children: ReactNode }> = ({ children }) => <>{children}</>;
+export const TabLabel: FC<{ children: ReactNode }> = ({children}) => <>{children}</>;
+export const TabContent: FC<{ children: ReactNode }> = ({children}) => <>{children}</>;
 

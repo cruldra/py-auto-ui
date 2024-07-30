@@ -1,7 +1,19 @@
-import {useState, useEffect} from "react";
-import {ConfigProvider, theme, Button, Card} from "antd";
+import {useState, useEffect, FC, PropsWithChildren, ReactNode} from "react";
+import {ConfigProvider, theme} from "antd";
+import {Typography} from 'antd';
+import {TabContent, TabLabel, Tabs} from "../Tabs";
 
-const QuickDemo = () => {
+const {Title} = Typography;
+export  type QuickDemoProps = {
+    firstHeading?: string;
+    secondHeading?: string;
+    children: ReactNode
+} & PropsWithChildren<ReactNode>
+export const QuickDemo: FC<QuickDemoProps> = ({
+                                                  firstHeading,
+                                                  secondHeading,
+                                                  children
+                                              }) => {
     const {defaultAlgorithm, darkAlgorithm} = theme;
     const [isDarkMode, setIsDarkMode] = useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
@@ -21,13 +33,17 @@ const QuickDemo = () => {
 
     return (
         <ConfigProvider theme={isDarkMode ? {algorithm: darkAlgorithm} : {algorithm: defaultAlgorithm}}>
-            <Card style={{width: "max-content"}}>
-                <Button>
-                    Change Theme to {isDarkMode ? "Light" : "Dark"}
-                </Button>
-            </Card>
+            <div className={"w-100% h-100%   flex flex-col items-center  "}>
+                {
+                    firstHeading ? <h1> {firstHeading} </h1> : null
+                }
+                {
+                    secondHeading ? <h2 className={"mt-1"}> {secondHeading} </h2> : null
+                }
+                <div className={"w-100%  "}>
+                    <Tabs children={children} />
+                </div>
+            </div>
         </ConfigProvider>
     );
 };
-
-export default QuickDemo;

@@ -1,18 +1,19 @@
 import {FC} from "react";
-import QuickDemo from "../QuickDemo";
 import 'uno.css'
+import {QuickDemo} from "../QuickDemo";
+import {TabContent, TabLabel} from "../../Tabs";
+
 const Example: FC = ({}) => {
     return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
-            }}
-        >
-            <QuickDemo/>
-        </div>
+        <>
+
+            <QuickDemo firstHeading={"我是你爹"}>
+                <TabLabel>11</TabLabel>
+                <TabContent><h1>111</h1></TabContent>
+                <TabLabel>333</TabLabel>
+                <TabContent>44</TabContent>
+            </QuickDemo>
+        </>
     );
 };
 

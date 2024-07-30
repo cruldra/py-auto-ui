@@ -1,2 +1,1 @@
-
-export { default as QuickDemo } from './QuickDemo';
+export * from './QuickDemo';
