@@ -1,6 +1,6 @@
 {
   "name": "py-auto-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一组专为`python`自动化程序设计的`UI`库,基于`Ant UI`",
   "type": "module",
   "main": "dist/index.cjs.js",
