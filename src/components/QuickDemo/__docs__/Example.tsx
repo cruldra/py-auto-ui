@@ -1,6 +1,6 @@
 import {FC} from "react";
 import QuickDemo from "../QuickDemo";
-
+import 'uno.css'
 const Example: FC = ({}) => {
     return (
         <div

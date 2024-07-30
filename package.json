@@ -31,6 +31,7 @@
     "@types/react": "^18.3.3",
     "storybook": "^8.2.6",
     "typescript": "^5.5.4",
+    "unocss": "^0.61.8",
     "vite": "^5.3.5",
     "vite-plugin-dts": "4.0.0-beta.2"
   },
